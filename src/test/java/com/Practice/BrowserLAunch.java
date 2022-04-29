@@ -22,6 +22,10 @@ public class BrowserLAunch {
 		// 0   1   2    3      4    5 
 		// Thu Apr 28 2022
 		
+		// Fri Apr 29 2022
+		
+		
+		
 		String[] arr = currentdate.split(" ");
 		
 		String day= arr[0];

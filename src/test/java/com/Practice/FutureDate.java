@@ -48,6 +48,14 @@ public class FutureDate {
 
 		driver.findElement(By.xpath("//li[@data-cy=\"account\"]")).click();
 
+		driver.findElement(By.id("fromCity")).sendKeys("BOM");
+		
+		driver.findElement(By.xpath("//div[.='BOM']")).click();
+		
+
+		driver.findElement(By.id("toCity")).sendKeys("HYD");
+		
+		driver.findElement(By.xpath("//div[.='HYD']")).click();
 
 		driver.findElement(By.xpath("//span[.='DEPARTURE']")).click();
 
@@ -55,10 +63,10 @@ public class FutureDate {
 
 		WebElement nextmonth = driver.findElement(By.xpath("//span[@aria-label='Next Month']"));
 
-		for (int i = 0; i < 12; i++)
+		for (int i = 0; i < 36; i++)
 		{
 			try {
-				driver.findElement(By.xpath("//div[@aria-label=\"Sun Sep 04 2022\"]")).click();
+				driver.findElement(By.xpath("//div[@aria-label=\"Sun Sep 04 2025\"]")).click();
 				break;
 			} catch (Exception e) {
 				nextmonth.click();
