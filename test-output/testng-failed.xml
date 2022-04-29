@@ -3,11 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.Vtiger.genric.JavaUtil">
+      <class name="com.Practice.DataProvider1">
         <methods>
-          <include name="createRandomnumber"/>
+          <include name="travel" invocation-numbers="1 2"/>
         </methods>
-      </class> <!-- com.Vtiger.genric.JavaUtil -->
+      </class> <!-- com.Practice.DataProvider1 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

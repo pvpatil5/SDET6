@@ -40,6 +40,10 @@ public class DataProvider1
 		driver.findElement(By.xpath("//div[.='"+to+"']")).click();
 
 	//	driver.findElement(By.xpath("//span[.='DEPARTURE']")).click();
+		
+		Thread.sleep(5000);
+		
+		driver.close();
 
 	}
 
