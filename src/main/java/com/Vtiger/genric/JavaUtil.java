@@ -7,7 +7,7 @@ public class JavaUtil
 {	
 	public int createRandomnumber() {
 		Random random = new Random();
-		int number=random.nextInt(1002);
+		int number=random.nextInt(100);
 		return number;
 	}
 	

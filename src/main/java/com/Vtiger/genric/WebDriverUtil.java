@@ -1,9 +1,7 @@
 package com.Vtiger.genric;
 
 import java.time.Duration;
-import java.util.Iterator;
 import java.util.Set;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -103,18 +101,15 @@ public class WebDriverUtil
 
 	public void switchWindow(String title) {
 		Set<String> winids = driver.getWindowHandles();
-
-		Iterator<String> it = winids.iterator();
+		//Iterator<String> it = winids.iterator();
 
 		for (String id : winids) 
 		{
 			driver.switchTo().window(id);
-			if(title.equalsIgnoreCase(driver.getTitle())) {
+			if(title.contains(driver.getTitle())) 
+			{
 				break;
 			}
 		}
-
 	}
-
-
 }

@@ -1,8 +1,6 @@
 package com.Practice;
 
 import java.time.Duration;
-import java.util.Date;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,7 +11,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class FutureDate {
 
 	public static void main(String[] args) throws InterruptedException {
-		Date date = new  Date();
+		//Date date = new  Date();
 
 		//		String currentdate=date.toString();
 		//		
@@ -49,12 +47,12 @@ public class FutureDate {
 		driver.findElement(By.xpath("//li[@data-cy=\"account\"]")).click();
 
 		driver.findElement(By.id("fromCity")).sendKeys("BOM");
-		
+
 		driver.findElement(By.xpath("//div[.='BOM']")).click();
-		
+
 
 		driver.findElement(By.id("toCity")).sendKeys("HYD");
-		
+
 		driver.findElement(By.xpath("//div[.='HYD']")).click();
 
 		driver.findElement(By.xpath("//span[.='DEPARTURE']")).click();

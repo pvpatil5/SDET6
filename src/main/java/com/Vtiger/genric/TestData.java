@@ -24,11 +24,17 @@ public class TestData
 		Faker faker = new Faker();
 		return	faker.address().cityName();
 	}
-	
+
 	public String getLastName() {
 		Faker faker = new Faker();
 		String lastName=faker.name().lastName();
 		return lastName;
+	}
+
+	public String getOrgname() {
+		Faker faker = new Faker();
+		return	faker.company().industry();
+
 	}
 
 }
