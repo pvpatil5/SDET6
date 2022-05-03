@@ -1,12 +1,13 @@
 package com.VTiger.TestCases;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.Test;
-
+import com.Vtiger.ObjectRepo.CreateNewOrgPage;
+import com.Vtiger.ObjectRepo.HomePage;
+import com.Vtiger.ObjectRepo.LoginPage;
+import com.Vtiger.ObjectRepo.OrgInfoPage;
 import com.Vtiger.genric.JavaUtil;
 import com.Vtiger.genric.ProppertyFiles;
 import com.Vtiger.genric.TestData;
@@ -40,50 +41,47 @@ public class TC02_CreateOrg_DD {
 
 		driver.get(proppertyFiles.readDatafrompropertyfile("url"));
 
-		driver.findElement(By.name("user_name")).sendKeys(proppertyFiles.readDatafrompropertyfile("username"));
-		driver.findElement(By.name("user_password")).sendKeys(proppertyFiles.readDatafrompropertyfile("password"));
-		driver.findElement(By.id("submitButton")).click();
+		LoginPage loginPage = new LoginPage(driver);
+		loginPage.logintoApp();
 
 		WebDriverUtil webDriverUtil = new WebDriverUtil(driver);
 
 		webDriverUtil.maxwindow();
 		webDriverUtil.pageloadtimeout();
 
-		driver.findElement(By.xpath("//a[.='Organizations']")).click();
+		HomePage homePage= new HomePage(driver);
+		homePage.getOrglink().click();
 
-		driver.findElement(By.xpath("//img[@alt='Create Organization...']")).click();
+
+		OrgInfoPage orgInfoPage = new OrgInfoPage(driver);
+		orgInfoPage.getCreateorgbtn().click();
+
 
 		TestData testData= new TestData();
 		JavaUtil javaUtil = new JavaUtil();
 		String orgname=testData.getOrgname()+javaUtil.createRandomnumber();
+		CreateNewOrgPage createNewOrgPage= new CreateNewOrgPage(driver);
 
-		driver.findElement(By.name("accountname")).sendKeys(orgname);
+		createNewOrgPage.getOrgname().sendKeys(orgname);
 
-		WebElement ratingdd=driver.findElement(By.name("rating"));
-		webDriverUtil.selectValuefromdd("Active", ratingdd);
-		WebElement industrydd=driver.findElement(By.name("industry"));
-		webDriverUtil.selectValuefromdd(industrydd, 8);
-		WebElement typedd=driver.findElement(By.name("accounttype"));
-		webDriverUtil.selectValuefromdd(typedd, "Customer");
+		webDriverUtil.selectValuefromdd("Active", createNewOrgPage.getRating());
 
-		driver.findElement(By.name("button")).click();
+		webDriverUtil.selectValuefromdd(createNewOrgPage.getIndustry(), "Education");
+
+		webDriverUtil.selectValuefromdd(createNewOrgPage.getType(), 3);
+
+		createNewOrgPage.getSaveorgbtn().click();
 
 		Thread.sleep(4000);
 		driver.navigate().refresh();
 
-		driver.findElement(By.xpath("//a[.='Organizations']")).click();
+		homePage.getOrglink().click();
 
-		driver.findElement(By.name("search_text")).sendKeys(orgname);
-
-		WebElement searchorgdd=driver.findElement(By.name("search_field"));
-
-		webDriverUtil.selectValuefromdd("Organization Name", searchorgdd);
-
-		driver.findElement(By.name("submit")).click();
+		orgInfoPage.searchforOrg(orgname, "accountname");
 
 		Thread.sleep(3000);
 
-		String actualorgname=driver.findElement(By.xpath("//a[@title='Organizations']")).getText();
+		String actualorgname=orgInfoPage.getfirstOrg().getText();
 
 
 		if (orgname.equals(actualorgname)) 
@@ -94,11 +92,7 @@ public class TC02_CreateOrg_DD {
 			System.out.println("TC Fail");
 		}
 
-		WebElement signoutimg=driver.findElement(By.xpath("//img[@src='themes/softed/images/user.PNG']"));
-
-		webDriverUtil.moveToelement(signoutimg);
-
-		driver.findElement(By.xpath("//a[.='Sign Out']")).click();
+		homePage.logoutfromApp();
 
 		Thread.sleep(10000);
 

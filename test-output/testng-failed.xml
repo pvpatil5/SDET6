@@ -3,11 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.Practice.DataProvider1">
+      <class name="com.VTiger.TestCases.TC03_CreateContact_org">
         <methods>
-          <include name="travel" invocation-numbers="1 2"/>
+          <include name="createcontact_org"/>
         </methods>
-      </class> <!-- com.Practice.DataProvider1 -->
+      </class> <!-- com.VTiger.TestCases.TC03_CreateContact_org -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
