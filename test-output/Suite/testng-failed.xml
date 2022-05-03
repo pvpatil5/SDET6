@@ -1,34 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
-  <test thread-count="5" name="Test(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]" parallel="tests">
+  <test thread-count="5" name="Test2(failed)" parallel="classes">
+    <parameter name="BROWSER" value="Firefox"/>
     <classes>
-      <class name="com.TESTNG.pac.Test2">
+      <class name="com.VTiger.TestCases.TC03_CreateContact_org">
         <methods>
-          <include name="testdesktopapp"/>
-          <include name="bs"/>
-          <include name="bc"/>
-          <include name="at"/>
-          <include name="as"/>
-          <include name="bt"/>
-          <include name="ac"/>
-          <include name="am"/>
-          <include name="bm"/>
+          <include name="login"/>
+          <include name="logout"/>
+          <include name="closeBrowser"/>
+          <include name="createcontact_org"/>
+          <include name="launchBrowser"/>
         </methods>
-      </class> <!-- com.TESTNG.pac.Test2 -->
-      <class name="com.TESTNG.pac.Test1">
-        <methods>
-          <include name="bs"/>
-          <include name="bc"/>
-          <include name="at"/>
-          <include name="as"/>
-          <include name="bt"/>
-          <include name="ac"/>
-          <include name="am"/>
-          <include name="testWebapp"/>
-          <include name="bm"/>
-        </methods>
-      </class> <!-- com.TESTNG.pac.Test1 -->
+      </class> <!-- com.VTiger.TestCases.TC03_CreateContact_org -->
     </classes>
-  </test> <!-- Test(failed) -->
+  </test> <!-- Test2(failed) -->
 </suite> <!-- Failed suite [Suite] -->
