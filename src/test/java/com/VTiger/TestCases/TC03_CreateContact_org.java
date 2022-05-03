@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.Vtiger.ObjectRepo.ConatctInfoPage;
@@ -20,6 +21,7 @@ import com.Vtiger.genric.WebDriverUtil;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class TC03_CreateContact_org extends  BaseClass {
+	@Parameters("Contactsname")
 	@Test
 	public void createcontact_org() throws IOException, InterruptedException 
 	{

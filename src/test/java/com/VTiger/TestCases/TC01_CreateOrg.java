@@ -1,5 +1,6 @@
 package com.VTiger.TestCases;
 
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.Vtiger.ObjectRepo.CreateNewOrgPage;
@@ -10,9 +11,9 @@ import com.Vtiger.genric.JavaUtil;
 import com.Vtiger.genric.TestData;
 
 public class TC01_CreateOrg  extends BaseClass{
-
+	@Parameters("Orgname")
 	@Test
-	public void createorg () throws Throwable
+	public void createorg (String Orgname) throws Throwable
 	{
 		HomePage homePage = new HomePage(driver);
 
@@ -23,11 +24,11 @@ public class TC01_CreateOrg  extends BaseClass{
 
 		TestData testData= new TestData();
 		JavaUtil javaUtil = new JavaUtil();
-		String orgname=testData.getOrgname()+javaUtil.createRandomnumber();
+	//	String orgname=testData.getOrgname()+javaUtil.createRandomnumber();
 
 		CreateNewOrgPage createNewOrgPage = new CreateNewOrgPage(driver);
 
-		createNewOrgPage.getOrgname().sendKeys(orgname);
+		createNewOrgPage.getOrgname().sendKeys(Orgname);
 		createNewOrgPage.getSaveorgbtn().click();
 
 		Thread.sleep(4000);
@@ -35,13 +36,13 @@ public class TC01_CreateOrg  extends BaseClass{
 
 		homePage.getOrglink().click();
 
-		orgInfoPage.searchforOrg(orgname, "accountname");
+		orgInfoPage.searchforOrg(Orgname, "accountname");
 
 		Thread.sleep(3000);
 
 		String actualorgname=orgInfoPage.getfirstOrg().getText();
 
-		if (orgname.equals(actualorgname)) 
+		if (Orgname.equals(actualorgname)) 
 		{
 			System.out.println("Tc Passes");
 		}
