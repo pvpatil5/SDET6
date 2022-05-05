@@ -7,8 +7,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
 import com.Vtiger.ObjectRepo.HomePage;
@@ -21,8 +25,18 @@ public class BaseClass {
 	public WebDriver driver;
 	public ProppertyFiles proppertyFiles= new ProppertyFiles();
 
+	@BeforeSuite
+	public void connecttoDB() {
+		System.out.println("====DB Connection====");
+	}
 	
-	@BeforeClass
+	@AfterSuite
+	public void disConnectDB() {
+		System.out.println("=====Disconnected DB=====");
+	}
+	
+	//@Parameters("BROWSER")
+	@BeforeTest
 	public void launchBrowser() throws IOException 
 	{
 		String BROWSER=proppertyFiles.readDatafrompropertyfile("browser");
@@ -59,7 +73,7 @@ public class BaseClass {
 		HomePage homePage = new HomePage(driver);
 		homePage.logoutfromApp();
 	}
-	@AfterClass
+	@AfterTest
 	public void closeBrowser() throws InterruptedException {
 
 		Thread.sleep(10000);

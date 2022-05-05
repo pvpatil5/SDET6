@@ -1,6 +1,5 @@
 package com.VTiger.TestCases;
 
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.Vtiger.ObjectRepo.CreateNewOrgPage;
@@ -10,10 +9,12 @@ import com.Vtiger.genric.BaseClass;
 import com.Vtiger.genric.JavaUtil;
 import com.Vtiger.genric.TestData;
 
+import junit.framework.Assert;
+
 public class TC01_CreateOrg  extends BaseClass{
-	@Parameters("Orgname")
-	@Test
-	public void createorg (String Orgname) throws Throwable
+	//@Parameters("Orgname")
+	@Test(enabled= true)
+	public void createorg () throws Throwable
 	{
 		HomePage homePage = new HomePage(driver);
 
@@ -24,7 +25,7 @@ public class TC01_CreateOrg  extends BaseClass{
 
 		TestData testData= new TestData();
 		JavaUtil javaUtil = new JavaUtil();
-	//	String orgname=testData.getOrgname()+javaUtil.createRandomnumber();
+		String Orgname=testData.getOrgname()+javaUtil.createRandomnumber();
 
 		CreateNewOrgPage createNewOrgPage = new CreateNewOrgPage(driver);
 
@@ -42,13 +43,8 @@ public class TC01_CreateOrg  extends BaseClass{
 
 		String actualorgname=orgInfoPage.getfirstOrg().getText();
 
-		if (Orgname.equals(actualorgname)) 
-		{
-			System.out.println("Tc Passes");
-		}
-		else {
-			System.out.println("TC Fail");
-		}
+		Assert.assertEquals(Orgname, actualorgname);
+		
 	}
 
 }

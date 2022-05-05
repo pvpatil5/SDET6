@@ -2,9 +2,7 @@ package com.VTiger.TestCases;
 
 import java.io.IOException;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -12,16 +10,12 @@ import com.Vtiger.ObjectRepo.ConatctInfoPage;
 import com.Vtiger.ObjectRepo.ContactOrg_popup;
 import com.Vtiger.ObjectRepo.CreateNewContactPage;
 import com.Vtiger.ObjectRepo.HomePage;
-import com.Vtiger.ObjectRepo.LoginPage;
 import com.Vtiger.genric.BaseClass;
-import com.Vtiger.genric.ProppertyFiles;
 import com.Vtiger.genric.TestData;
 import com.Vtiger.genric.WebDriverUtil;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-
 public class TC03_CreateContact_org extends  BaseClass {
-	@Parameters("Contactsname")
+	//@Parameters("Contactsname")
 	@Test
 	public void createcontact_org() throws IOException, InterruptedException 
 	{
@@ -74,12 +68,6 @@ public class TC03_CreateContact_org extends  BaseClass {
 
 		System.out.println(actualcontactlastname);
 
-		if (actualcontactlastname.equals(contactname)) 
-		{
-			System.out.println("Tc Passes");
-		}
-		else {
-			System.out.println("TC Fail");
-		}
+		Assert.assertEquals(actualcontactlastname, contactname);
 	}
 }

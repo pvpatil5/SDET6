@@ -1,20 +1,15 @@
 package com.VTiger.TestCases;
 
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
 import org.testng.annotations.Test;
+
 import com.Vtiger.ObjectRepo.CreateNewOrgPage;
 import com.Vtiger.ObjectRepo.HomePage;
-import com.Vtiger.ObjectRepo.LoginPage;
 import com.Vtiger.ObjectRepo.OrgInfoPage;
 import com.Vtiger.genric.BaseClass;
 import com.Vtiger.genric.JavaUtil;
-import com.Vtiger.genric.ProppertyFiles;
 import com.Vtiger.genric.TestData;
 import com.Vtiger.genric.WebDriverUtil;
-
-import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class TC02_CreateOrg_DD  extends BaseClass{
 
@@ -53,12 +48,6 @@ public class TC02_CreateOrg_DD  extends BaseClass{
 
 		String actualorgname=orgInfoPage.getfirstOrg().getText();
 
-		if (orgname.equals(actualorgname)) 
-		{
-			System.out.println("Tc Passes");
-		}
-		else {
-			System.out.println("TC Fail");
-		}
+		Assert.assertEquals(actualorgname, orgname);
 	}
 }

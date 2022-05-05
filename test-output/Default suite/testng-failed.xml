@@ -3,13 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.TESTNG.pac.Test1">
+      <class name="com.TESTNG.pac.Sample">
         <methods>
-          <include name="testWebapp1"/>
-          <include name="am"/>
-          <include name="bm"/>
+          <include name="bc"/>
+          <include name="org"/>
+          <include name="contact"/>
         </methods>
-      </class> <!-- com.TESTNG.pac.Test1 -->
+      </class> <!-- com.TESTNG.pac.Sample -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
