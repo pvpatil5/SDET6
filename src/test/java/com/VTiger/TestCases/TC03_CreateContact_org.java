@@ -3,7 +3,6 @@ package com.VTiger.TestCases;
 import java.io.IOException;
 
 import org.testng.Assert;
-import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.Vtiger.ObjectRepo.ConatctInfoPage;
@@ -15,7 +14,6 @@ import com.Vtiger.genric.TestData;
 import com.Vtiger.genric.WebDriverUtil;
 
 public class TC03_CreateContact_org extends  BaseClass {
-	//@Parameters("Contactsname")
 	@Test
 	public void createcontact_org() throws IOException, InterruptedException 
 	{
@@ -69,5 +67,7 @@ public class TC03_CreateContact_org extends  BaseClass {
 		System.out.println(actualcontactlastname);
 
 		Assert.assertEquals(actualcontactlastname, contactname);
+		
+		Assert.assertEquals(false, true);
 	}
 }

@@ -1,22 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
-  <listeners>
-    <listener class-name="com.Vtiger.genric.Listners"/>
-  </listeners>
-  <test thread-count="5" name="Test(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.VTiger.TestCases.TC01_CreateOrg">
+      <class name="com.Practice.ExtentReportt">
         <methods>
-          <include name="createorg"/>
-          <include name="login"/>
-          <include name="logout"/>
-          <include name="disConnectDB"/>
-          <include name="closeBrowser"/>
-          <include name="connecttoDB"/>
-          <include name="launchBrowser"/>
+          <include name="test"/>
         </methods>
-      </class> <!-- com.VTiger.TestCases.TC01_CreateOrg -->
+      </class> <!-- com.Practice.ExtentReportt -->
     </classes>
-  </test> <!-- Test(failed) -->
-</suite> <!-- Failed suite [Suite] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->
