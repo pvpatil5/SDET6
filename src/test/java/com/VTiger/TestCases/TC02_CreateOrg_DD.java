@@ -19,7 +19,7 @@ public class TC02_CreateOrg_DD  extends BaseClass{
 
 		OrgInfoPage orgInfoPage = new OrgInfoPage(driver);
 		orgInfoPage.getCreateorgbtn().click();
-
+		Assert.assertEquals(false, true);
 		TestData testData= new TestData();
 		JavaUtil javaUtil = new JavaUtil();
 		String orgname=testData.getOrgname()+javaUtil.createRandomnumber();
@@ -48,5 +48,7 @@ public class TC02_CreateOrg_DD  extends BaseClass{
 		String actualorgname=orgInfoPage.getfirstOrg().getText();
 
 		Assert.assertEquals(actualorgname, orgname);
+
+		Assert.assertEquals(false, true);
 	}
 }

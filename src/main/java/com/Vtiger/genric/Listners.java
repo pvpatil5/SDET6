@@ -9,12 +9,13 @@ import org.testng.ITestResult;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
-import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
 public class Listners implements ITestListener  {
 
-	ExtentHtmlReporter reporter;
+	ExtentSparkReporter reporter;
 
 	ExtentReports reports;
 
@@ -22,7 +23,6 @@ public class Listners implements ITestListener  {
 
 	public void onTestStart(ITestResult result) {
 		test	= reports.createTest(result.getMethod().getMethodName());
-
 	}
 
 	public void onTestSuccess(ITestResult result) {
@@ -36,13 +36,11 @@ public class Listners implements ITestListener  {
 		test.log(Status.FAIL, result.getThrowable());
 
 
-		try {
-			String path = BaseClass.takeScreenshot(result.getMethod().getMethodName());
-			test.addScreenCaptureFromPath(path);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		String base64 = BaseClass.takeScreenshot(result.getMethod().getMethodName());
+		//test.addScreenCaptureFromBase64String(base64);
+
+		test.addScreenCaptureFromPath(base64);
+
 
 
 	}
@@ -61,7 +59,7 @@ public class Listners implements ITestListener  {
 		JavaUtil jv = new JavaUtil();
 		String date=	jv.getDate();
 
-		reporter= new ExtentHtmlReporter("..//SDET6/Report.html");
+		reporter= new ExtentSparkReporter("../SDET6/Report/ExtentReport.html");
 		reporter.config().setTheme(Theme.DARK);
 		reporter.config().setReportName("VTiger");
 		reporter.config().setDocumentTitle("NEW");

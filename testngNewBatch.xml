@@ -8,8 +8,6 @@
 	<test thread-count="5" name="Test">
 		<classes>
 			<class name="com.VTiger.TestCases.TC02_CreateOrg_DD" />
-			<class name="com.VTiger.TestCases.TC01_CreateOrg" />
-			<class name="com.VTiger.TestCases.TC03_CreateContact_org" />
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->

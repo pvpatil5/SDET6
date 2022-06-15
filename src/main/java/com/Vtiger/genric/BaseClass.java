@@ -84,10 +84,11 @@ public class BaseClass {
 	public static String takeScreenshot(String methodname) {
 		TakesScreenshot screenshot = (TakesScreenshot)sdriver;
 
-
-		String dest = "../SDET6/screenshot/"+methodname+".png";
+		System.out.println(methodname);
+		String dest = "../SDET6/screenshot/"+methodname+".PNG";
 
 		File src = screenshot.getScreenshotAs(OutputType.FILE);
+		//String base64 = screenshot.getScreenshotAs(OutputType.BASE64);
 
 		File destpath = new File(dest);
 
@@ -97,8 +98,9 @@ public class BaseClass {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		//return base64;
 		return dest;
 	}
-	
+
 
 }
